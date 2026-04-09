@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
@@ -19,27 +18,33 @@ export default function HeroSection() {
   const [slideIndex, setSlideIndex] = useState(2);
 
   return (
-    <Grid
-      container
+    <Box
+      id="home"
+      component="section"
       sx={{
         minHeight: "100vh",
         backgroundColor: "#f5f5f3",
         overflow: "hidden",
+        scrollMarginTop: "24px",
+        display: "grid",
+        gridTemplateColumns: {
+          xs: "1fr",
+          lg: "minmax(420px, 0.92fr) minmax(620px, 1.08fr)",
+        },
+        alignItems: "stretch",
       }}
     >
-      <Grid
+      <Box
         sx={{
-          xs: 12,
-          lg: 5,
           display: "flex",
           flexDirection: "column",
           px: { xs: 4, lg: 5 },
           pt: 4,
           pb: 6,
           backgroundColor: "#f5f5f3",
+          minWidth: 0,
         }}
       >
-
         <Box sx={{ mb: 2 }}>
           <NavBar />
         </Box>
@@ -51,6 +56,7 @@ export default function HeroSection() {
             flexDirection: "column",
             justifyContent: "center",
             gap: 2.5,
+            maxWidth: 560,
           }}
         >
           <Typography
@@ -70,7 +76,6 @@ export default function HeroSection() {
             <br />
             Trusted
             <br />
-            {/* "Travelers" with orange wavy underline */}
             <Box component="span" sx={{ position: "relative", display: "inline-block" }}>
               Travelers
               <Box
@@ -148,19 +153,21 @@ export default function HeroSection() {
             experiences.
           </Typography>
         </Box>
-      </Grid>
+      </Box>
 
-      <Grid
+      <Box
         sx={{
-          xs: 12,
-          lg: 7,
           position: "relative",
           display: "flex",
           flexDirection: "column",
-          pt: 3,
-          pr: 3,
+          justifyContent: "center",
+          pt: { xs: 0, lg: 3 },
           pb: 0,
+          pl: { xs: 4, lg: 0 },
+          pr: { xs: 4, lg: 3 },
+          mb: { xs: 4, lg: 0 },
           backgroundColor: "#f5f5f3",
+          minWidth: 0,
         }}
       >
         <Button
@@ -191,8 +198,8 @@ export default function HeroSection() {
             position: "relative",
             borderRadius: "24px",
             overflow: "hidden",
-            flex: 1,
-            minHeight: 480,
+            minHeight: { xs: 420, md: 520, lg: 680 },
+            width: "100%",
           }}
         >
           <Box
@@ -263,8 +270,7 @@ export default function HeroSection() {
               position: "absolute",
               bottom: 0,
               left: 0,
-              // Sits from left edge to ~60% of image width
-              width: "60%",
+              width: { xs: "100%", md: "68%", lg: "60%" },
               backgroundColor: "#fff",
               borderRadius: "0 24px 0 24px",
               border: "1px solid #E1E1E1",
@@ -277,10 +283,10 @@ export default function HeroSection() {
             }}
           >
             <Box sx={{ display: "flex", gap: 1.5, flex: 1 }}>
-              {HERO_THUMBNAILS.map((t, i) => (
+              {HERO_THUMBNAILS.map((thumbnail, index) => (
                 <Box
-                  key={t.id}
-                  onClick={() => setActiveThumb(i)}
+                  key={thumbnail.id}
+                  onClick={() => setActiveThumb(index)}
                   sx={{
                     position: "relative",
                     flex: 1,
@@ -288,24 +294,25 @@ export default function HeroSection() {
                     borderRadius: "12px",
                     overflow: "hidden",
                     cursor: "pointer",
-                    outline: activeThumb === i ? "2px solid #141414" : "none",
+                    outline: activeThumb === index ? "2px solid #141414" : "none",
                     outlineOffset: "2px",
-                    opacity: activeThumb === i ? 1 : 0.75,
+                    opacity: activeThumb === index ? 1 : 0.75,
                     transition: "opacity 0.2s, outline 0.2s",
                     "&:hover": { opacity: 1 },
                   }}
                 >
                   <Box
                     component="img"
-                    src={t.image}
-                    alt={t.label}
+                    src={thumbnail.image}
+                    alt={thumbnail.label}
                     sx={{ width: "100%", height: "100%", objectFit: "cover" }}
                   />
                   <Box
                     sx={{
                       position: "absolute",
                       inset: 0,
-                      background: "linear-gradient(to top, rgba(0,0,0,0.60) 0%, transparent 60%)",
+                      background:
+                        "linear-gradient(to top, rgba(0,0,0,0.60) 0%, transparent 60%)",
                     }}
                   />
                   <Typography
@@ -321,7 +328,7 @@ export default function HeroSection() {
                       fontFamily: "inherit",
                     }}
                   >
-                    {t.label}
+                    {thumbnail.label}
                   </Typography>
                 </Box>
               ))}
@@ -339,7 +346,7 @@ export default function HeroSection() {
               <Box sx={{ display: "flex", gap: 0.75 }}>
                 <IconButton
                   size="small"
-                  onClick={() => setSlideIndex((v) => Math.max(1, v - 1))}
+                  onClick={() => setSlideIndex((value) => Math.max(1, value - 1))}
                   sx={{
                     width: 32,
                     height: 32,
@@ -353,7 +360,7 @@ export default function HeroSection() {
                 </IconButton>
                 <IconButton
                   size="small"
-                  onClick={() => setSlideIndex((v) => Math.min(12, v + 1))}
+                  onClick={() => setSlideIndex((value) => Math.min(12, value + 1))}
                   sx={{
                     width: 32,
                     height: 32,
@@ -387,7 +394,7 @@ export default function HeroSection() {
             </Box>
           </Box>
         </Box>
-      </Grid>
-    </Grid>
+      </Box>
+    </Box>
   );
 }

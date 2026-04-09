@@ -14,19 +14,21 @@ import Box from "@mui/material/Box";
 import HeroSection from "./HeroSection";
 import TrendingSection from "./TrendingSection";
 import PopularDestinationsSection from "./PopularSection";
+import PricingSection from "./PricingSection";
+import NewsletterSection from "./NewsletterSection";
 import Footer from "./Footer";
 
 export default function TravelBlog() {
   return (
-    <Box sx={{ minHeight: "100vh" }}>      
+    <Box sx={{ minHeight: "100vh" }}>
       <HeroSection />
       <Box sx={{ backgroundColor: "#fafafa" }}>
         <TrendingSection />
         <PopularDestinationsSection />
-        {/* Newsletter section with full-width light bg */}
+        <PricingSection />
+        <NewsletterSection />
         <Footer />
       </Box>
-
     </Box>
   );
 }

@@ -14,6 +14,17 @@ export interface ThumbnailItem {
   image: string;
 }
 
+export interface TravelPlan {
+  id: string;
+  name: string;
+  eyebrow?: string;
+  price: number;
+  description: string;
+  cta: string;
+  features: string[];
+  featured?: boolean;
+}
+
 // ─── Data ──────────────────────────────────────────────────────────────────
 
 export const HERO_THUMBNAILS: ThumbnailItem[] = [
@@ -101,3 +112,53 @@ export const DESTINATIONS: Destination[] = [
 ];
 
 export const NAV_ITEMS = ["Home", "Trips", "Community", "About", "Contact"] as const;
+
+export const TRAVEL_PLANS: TravelPlan[] = [
+  {
+    id: "basic",
+    name: "Basic Explorer",
+    price: 199,
+    description: "Perfect for solo travelers and short adventures.",
+    cta: "Start Journey",
+    features: [
+      "3 Days / 2 Nights Package",
+      "Standard Hotel Stay",
+      "Airport Pickup",
+      "Free Breakfast",
+      "City Tour (1 Location)",
+      "Email Support",
+    ],
+  },
+  {
+    id: "comfort",
+    name: "Most Popular",
+    eyebrow: "Comfort Plan",
+    price: 399,
+    description: "Best for couples and small groups looking for comfort.",
+    cta: "Book Now",
+    featured: true,
+    features: [
+      "5 Days / 4 Nights Package",
+      "4-Star Hotel Accommodation",
+      "Airport Pickup & Drop",
+      "Daily Breakfast + 1 Dinner",
+      "Guided City Tours",
+      "Professional Travel Guide",
+    ],
+  },
+  {
+    id: "premium",
+    name: "Premium Voyager",
+    price: 299,
+    description: "For luxury lovers and premium explorers.",
+    cta: "Start Journey",
+    features: [
+      "7 Days / 6 Nights Package",
+      "5-Star Luxury Hotel",
+      "Private Transport",
+      "All Meals Included",
+      "Personalized Travel Itinerary",
+      "24/7 Dedicated Support",
+    ],
+  },
+];
