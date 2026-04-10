@@ -149,7 +149,7 @@ export const TRAVEL_PLANS: TravelPlan[] = [
   {
     id: "premium",
     name: "Premium Voyager",
-    price: 299,
+    price: 899,
     description: "For luxury lovers and premium explorers.",
     cta: "Start Journey",
     features: [

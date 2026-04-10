@@ -111,7 +111,7 @@ export default function PopularDestinationsSection() {
   return (
     <Box
       component="section"
-      id="community"
+      id="destinations"
       sx={{
         background:
           "radial-gradient(circle at top, rgba(203, 233, 240, 0.6), transparent 42%), #fafafa",

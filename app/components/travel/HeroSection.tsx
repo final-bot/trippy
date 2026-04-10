@@ -3,13 +3,13 @@
 import { useState } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import NorthEastIcon from "@mui/icons-material/NorthEast";
 
 import { HERO_THUMBNAILS } from "../../data/travel";
+import AuthActions from "./AuthActions";
 import HighlightWord from "./ui/HighlightWord";
 import NavBar from "./NavBar";
 
@@ -170,28 +170,16 @@ export default function HeroSection() {
           minWidth: 0,
         }}
       >
-        <Button
+        <Box
           sx={{
             position: "absolute",
             top: 16,
             right: 16,
             zIndex: 20,
-            px: 3,
-            py: 1.25,
-            borderRadius: "999px",
-            fontSize: "13px",
-            fontWeight: 700,
-            fontFamily: "inherit",
-            textTransform: "none",
-            color: "#fff",
-            backgroundColor: "#141414",
-            letterSpacing: "0.05em",
-            boxShadow: "0 2px 12px rgba(0,0,0,0.25)",
-            "&:hover": { backgroundColor: "#2a2a2a" },
           }}
         >
-          LOGIN
-        </Button>
+          <AuthActions variant="hero" />
+        </Box>
 
         <Box
           sx={{
