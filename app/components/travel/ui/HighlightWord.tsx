@@ -8,7 +8,10 @@ export default function HighlightWord({ children, bg = "#C8F0D0" }: Props) {
     <span className="relative inline-block">
       <span
         className="absolute rounded-lg -z-10"
-        style={{ background: bg, inset: "8% -4px" }}
+        style={{
+          backgroundColor: bg,
+          inset: "0.12em -0.2em",
+        }}
       />
       {children}
     </span>

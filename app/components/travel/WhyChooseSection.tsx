@@ -105,13 +105,13 @@ export default function WhyChooseSection() {
           >
             <path
               d="M6 24 C90 12, 168 12, 250 18"
-              stroke="#F3B63F"
+              stroke="#a6ceae"
               strokeWidth="4"
               strokeLinecap="round"
             />
             <path
               d="M205 34 C272 24, 324 20, 374 12"
-              stroke="#F3B63F"
+              stroke="#a6ceae"
               strokeWidth="4"
               strokeLinecap="round"
             />

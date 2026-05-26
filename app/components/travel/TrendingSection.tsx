@@ -61,7 +61,7 @@ export default function TrendingSection() {
                 width: 8,
                 height: 8,
                 borderRadius: "50%",
-                backgroundColor: "#141414",
+                backgroundColor: "#a6ceae",
               }}
             />
             <Typography

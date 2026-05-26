@@ -9,6 +9,7 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
+import AuthActions from "./AuthActions";
 
 const NAV_ITEMS = [
   { label: "Home", href: "#home" },
@@ -59,6 +60,9 @@ export default function NavBar() {
           backdropFilter: "blur(12px)",
           border: "1px solid rgba(255,255,255,0.90)",
           boxShadow: "0 2px 12px rgba(0,0,0,0.07)",
+          flexWrap: "nowrap",
+          overflowX: "auto",
+          WebkitOverflowScrolling: "touch",
         }}
       >
         {NAV_ITEMS.map((item) => {
@@ -92,6 +96,7 @@ export default function NavBar() {
                 boxShadow: isActive ? "0 8px 18px rgba(20,20,20,0.18)" : "none",
                 scrollBehavior: "smooth",
                 transition: "all 0.2s ease",
+                whiteSpace: "nowrap",
                 "&:hover": {
                   backgroundColor: isActive ? "#141414" : "rgba(255,255,255,0.8)",
                   color: isActive ? "#fff" : "#141414",

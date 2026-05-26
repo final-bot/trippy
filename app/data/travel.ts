@@ -31,17 +31,17 @@ export const HERO_THUMBNAILS: ThumbnailItem[] = [
   {
     id: 1,
     label: "Nature",
-    image: "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=400&q=80",
+    image: "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=1400&q=85",
   },
   {
     id: 2,
     label: "Mountain",
-    image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=400&q=80",
+    image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1400&q=85",
   },
   {
     id: 3,
     label: "Village",
-    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=80",
+    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1400&q=85",
   },
 ];
 

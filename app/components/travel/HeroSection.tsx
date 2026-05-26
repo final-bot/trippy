@@ -9,13 +9,12 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import NorthEastIcon from "@mui/icons-material/NorthEast";
 
 import { HERO_THUMBNAILS } from "../../data/travel";
-import AuthActions from "./AuthActions";
 import HighlightWord from "./ui/HighlightWord";
 import NavBar from "./NavBar";
+import AuthActions from "./AuthActions";
 
 export default function HeroSection() {
   const [activeThumb, setActiveThumb] = useState(0);
-  const [slideIndex, setSlideIndex] = useState(2);
 
   return (
     <Box
@@ -38,7 +37,7 @@ export default function HeroSection() {
         sx={{
           display: "flex",
           flexDirection: "column",
-          px: { xs: 4, lg: 5 },
+          px: { xs: 3, md: 8, lg: 12 },
           pt: 4,
           pb: 6,
           backgroundColor: "#f5f5f3",
@@ -70,14 +69,11 @@ export default function HeroSection() {
               color: "#141414",
             }}
           >
-            Feel the <HighlightWord>Freedom</HighlightWord> of
+            Feel the <HighlightWord bg="#C8F0D0">Freedom</HighlightWord> of
             <br />
-            Travel With
-            <br />
-            Trusted
-            <br />
+            Travel With{' '}
             <Box component="span" sx={{ position: "relative", display: "inline-block" }}>
-              Travelers
+              Trippy
               <Box
                 component="svg"
                 viewBox="0 0 280 10"
@@ -92,8 +88,8 @@ export default function HeroSection() {
               >
                 <path
                   d="M2 7 Q45 1 90 7 Q135 13 180 7 Q225 1 278 6"
-                  stroke="#F5A623"
-                  strokeWidth="3.5"
+                  stroke="#a6ceae"
+                  strokeWidth="4"
                   strokeLinecap="round"
                 />
               </Box>
@@ -107,6 +103,7 @@ export default function HeroSection() {
               gap: 1.5,
               maxWidth: 260,
               my: 0.5,
+              mx: "auto",
             }}
           >
             <Box sx={{ flex: 1, height: "1px", backgroundColor: "#DADADA" }} />
@@ -148,9 +145,7 @@ export default function HeroSection() {
               maxWidth: 480,
             }}
           >
-            Discover amazing destinations with a community of trusted travelers.
-            Let&apos;s explore the world together with comfort and unforgettable
-            experiences.
+            Discover amazing destinations with peace of mind. Let Trippy handle your bookings, so you can focus on making unforgettable memories.
           </Typography>
         </Box>
       </Box>
@@ -170,18 +165,15 @@ export default function HeroSection() {
           minWidth: 0,
         }}
       >
-        <Box
-          sx={{
-            position: "absolute",
+
+        <Box sx={{ position: "absolute",
             top: 16,
             right: 16,
             zIndex: 20,
-          }}
-        >
-          <AuthActions variant="hero" />
-        </Box>
-
-        <Box
+            alignItems: "center", gap: 1, flexShrink: 0 }}>
+                <AuthActions variant="navbar" showSignUp />
+              </Box>
+          <Box
           sx={{
             position: "relative",
             borderRadius: "24px",
@@ -192,8 +184,8 @@ export default function HeroSection() {
         >
           <Box
             component="img"
-            src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=1400&q=85"
-            alt="Mountain landscape"
+            src={HERO_THUMBNAILS[activeThumb].image}
+            alt={HERO_THUMBNAILS[activeThumb].label}
             sx={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
           />
 
@@ -334,7 +326,7 @@ export default function HeroSection() {
               <Box sx={{ display: "flex", gap: 0.75 }}>
                 <IconButton
                   size="small"
-                  onClick={() => setSlideIndex((value) => Math.max(1, value - 1))}
+                  onClick={() => setActiveThumb((v) => Math.max(0, v - 1))}
                   sx={{
                     width: 32,
                     height: 32,
@@ -348,7 +340,7 @@ export default function HeroSection() {
                 </IconButton>
                 <IconButton
                   size="small"
-                  onClick={() => setSlideIndex((value) => Math.min(12, value + 1))}
+                  onClick={() => setActiveThumb((v) => Math.min(HERO_THUMBNAILS.length - 1, v + 1))}
                   sx={{
                     width: 32,
                     height: 32,
@@ -371,12 +363,12 @@ export default function HeroSection() {
                   color: "#141414",
                 }}
               >
-                {slideIndex}
+                {activeThumb + 1}
                 <Box
                   component="span"
                   sx={{ fontWeight: 400, fontSize: "13px", color: "#5A5A5A" }}
                 >
-                  /12
+                  /{HERO_THUMBNAILS.length}
                 </Box>
               </Typography>
             </Box>

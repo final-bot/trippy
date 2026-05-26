@@ -171,7 +171,7 @@ export default function DashboardPage() {
                     mt: 3,
                     borderRadius: "26px",
                     overflow: "hidden",
-                    height: { xs: 220, md: 260 },
+                    height: { xs: 480, md: 520 },
                     border: "1px solid rgba(20,20,20,0.06)",
                   }}
                 >
